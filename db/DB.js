@@ -85,6 +85,7 @@ const DB = {
   },
 
   async removeSubscriber(email) {
+    // TODO: make this remove ALL subscriber records matching email?
     const sha1 = getSha1(email);
 
     return await this._getSha1EntryAndDo(sha1, async aEntry => {
