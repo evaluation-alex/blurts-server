@@ -16,6 +16,8 @@ function checkAuth (user, pass) {
 }
 
 
+router.use("/notification", textParser);
+
 router.use("/notification", (req, res, next) => {
   console.log("SES notification request body: ", req.body);
   const credentials = auth(req);
@@ -27,7 +29,6 @@ router.use("/notification", (req, res, next) => {
   }
 });
 
-
-router.post("/notification", textParser, notification);
+router.post("/notification", notification);
 
 module.exports = router;
