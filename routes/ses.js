@@ -17,6 +17,7 @@ function checkAuth (user, pass) {
 
 
 router.use("/notification", (req, res, next) => {
+  console.log("SES notification request body: ", req.body);
   const credentials = auth(req);
   if (!credentials || !checkAuth(credentials.name, credentials.pass)) {
     res.setHeader("WWW-Authenticate", `Basic realm="${AppConstants.SERVER_URL}"`);
